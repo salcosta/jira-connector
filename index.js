@@ -51,6 +51,7 @@ var screens = require('./api/screens');
 var search = require('./api/search');
 var securityLevel = require('./api/securityLevel');
 var serverInfo = require('./api/serverInfo');
+var serviceDesk = require('./api/serviceDesk');
 var settings = require('./api/settings');
 var sprint = require('./api/sprint');
 var status = require('./api/status');
@@ -267,6 +268,7 @@ var JiraClient = module.exports = function (config) {
     this.search = new search(this);
     this.securityLevel = new securityLevel(this);
     this.serverInfo = new serverInfo(this);
+    this.serviceDesk = new serviceDesk(this);
     this.settings = new settings(this);
     this.sprint = new sprint(this);
     this.status = new status(this);
