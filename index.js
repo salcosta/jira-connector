@@ -293,7 +293,7 @@ var JiraClient = module.exports = function (config) {
      * @returns {string} The constructed URL.
      */
     this.buildURL = function (path, forcedVersion) {
-        var apiBasePath = this.path_prefix + 'rest/servicedeskapi/';
+        var apiBasePath = this.path_prefix + 'rest/api/';
         var version = forcedVersion || this.apiVersion;
         var requestUrl = url.format({
             protocol: this.protocol,
@@ -315,7 +315,7 @@ var JiraClient = module.exports = function (config) {
      * @returns {string} The constructed URL.
      */
     this.buildServiceDeskURL = function (path) {
-        var apiBasePath = this.path_prefix + 'rest/api/';
+        var apiBasePath = this.path_prefix + 'rest/servicedeskapi/';
         
         var requestUrl = url.format({
             protocol: this.protocol,
