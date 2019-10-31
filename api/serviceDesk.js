@@ -23,7 +23,7 @@ function ServiceDeskClient(jiraClient) {
      */
     this.getQueue = function(opts, debug, callback) {
         var options = {
-            uri: this.jiraClient.buldServiceDeskURL('/servicedesk') + '/' + opts.projectId + '/queue/' + opts.queueId + '/issue',
+            uri: this.jiraClient.buildServiceDeskURL('/servicedesk') + '/' + opts.projectId + '/queue/' + opts.queueId + '/issue',
             method: 'GET',
             json: true,
             followAllRedirects: true,
