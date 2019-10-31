@@ -293,13 +293,35 @@ var JiraClient = module.exports = function (config) {
      * @returns {string} The constructed URL.
      */
     this.buildURL = function (path, forcedVersion) {
-        var apiBasePath = this.path_prefix + 'rest/api/';
+        var apiBasePath = this.path_prefix + 'rest/servicedeskapi/';
         var version = forcedVersion || this.apiVersion;
         var requestUrl = url.format({
             protocol: this.protocol,
             hostname: this.host,
             port: this.port,
             pathname: apiBasePath + version + path
+        });
+
+        return decodeURIComponent(requestUrl);
+    };
+
+    /**
+     * Simple utility to build a REST endpoint URL for the Jira API.
+     *
+     * @method buildURL
+     * @memberOf JiraClient#
+     * @param path The path of the URL without concern for the root of the REST API.
+     * @param {string | number} [forcedVersion] Use this param to force a particular version
+     * @returns {string} The constructed URL.
+     */
+    this.buildServiceDeskURL = function (path) {
+        var apiBasePath = this.path_prefix + 'rest/api/';
+        
+        var requestUrl = url.format({
+            protocol: this.protocol,
+            hostname: this.host,
+            port: this.port,
+            pathname: apiBasePath + path
         });
 
         return decodeURIComponent(requestUrl);
